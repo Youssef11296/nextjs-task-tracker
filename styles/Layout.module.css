@@ -1,0 +1,53 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header,
+.footer {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+}
+
+/* header */
+.header h1 {
+  color: #fff;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+.header nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.header nav ul li {
+  margin-right: 1rem;
+}
+
+.header nav ul li:last-child {
+  margin-right: 0rem;
+}
+
+.header nav ul li a {
+  color: #fff;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+/* main */
+.layout main {
+  flex: 1;
+  padding: 0 2rem;
+}
+
+/* footer */
+.footer p {
+  margin: auto;
+  color: #fff;
+  font-size: 1.2rem;
+}

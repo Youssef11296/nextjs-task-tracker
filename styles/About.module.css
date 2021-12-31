@@ -1,0 +1,16 @@
+.about {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.aboutContent {
+  max-width: 70vw;
+  text-align: center;
+}
+
+.aboutContent p {
+  letter-spacing: 1.5px;
+  line-height: 1.5rem;
+  margin: 1rem 0;
+}
