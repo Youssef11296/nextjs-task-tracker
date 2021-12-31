@@ -1,8 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Tasks from "../components/Layout/Tasks/Tasks";
+import { url } from "../utils/api";
 import styles from "../styles/Home.module.css";
 
-const Home: NextPage = () => {
+interface Props {
+  tasks: Task[];
+}
+
+const Home: NextPage<Props> = ({ tasks }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -12,10 +18,22 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1>Hello world!</h1>
+        <h1>Here are your all tasks:</h1>
+        <Tasks tasks={tasks} />
       </main>
     </div>
   );
+};
+
+// Get server side props
+export const getServerSideProps = async () => {
+  const { data } = await (await fetch(`${url}/tasks`)).json();
+
+  return {
+    props: {
+      tasks: data,
+    },
+  };
 };
 
 export default Home;
