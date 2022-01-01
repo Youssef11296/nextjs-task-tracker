@@ -2,6 +2,7 @@
 import Task from "./Task";
 // styles
 import Styles from "../../../styles/Tasks.module.css";
+import Link from "next/link";
 
 // props
 interface Props {
@@ -16,6 +17,11 @@ const Tasks: React.FC<Props> = ({ tasks }: Props) => {
         {tasks.map((task: Task, index: number) => (
           <Task key={task._id} task={task} />
         ))}
+      </div>
+      <div className={Styles.tasksOptions}>
+        <button className="linkedBtn">
+          <Link href="/tasks/new">Create Task</Link>
+        </button>
       </div>
     </div>
   );
