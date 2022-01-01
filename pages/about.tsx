@@ -4,8 +4,8 @@ import Styles from "../styles/About.module.css";
 
 const about = () => {
   return (
-    <div className={Styles.about}>
-      <div className={Styles.aboutContent}>
+    <div className="about">
+      <div className="about__content">
         <h2>About the app</h2>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting

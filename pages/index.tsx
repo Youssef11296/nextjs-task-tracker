@@ -18,7 +18,6 @@ const Home: NextPage<Props> = ({ tasks }) => {
       </Head>
 
       <div className={Styles.mainContent}>
-        <h1>Here are your all tasks:</h1>
         <Tasks tasks={tasks} />
       </div>
     </div>

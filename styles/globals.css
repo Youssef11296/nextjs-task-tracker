@@ -27,7 +27,7 @@ a {
 
 .linkedBtn {
   border: none;
-  width: 220px;
+  width: 80px;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -38,6 +38,71 @@ a {
   height: 100%;
   background-color: #000;
   color: #fff;
-  padding: 0.5rem;
+  padding: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.redirectedMessage {
+  width: 500px;
+  padding: 1.5rem;
   font-size: 1.2rem;
+  text-align: center;
+  border-radius: 5px;
+  color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.message {
+  width: 400px;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #0809;
+  min-width: fit-content;
+  position: fixed;
+  top: 5rem;
+  right: -100%;
+  opacity: 0;
+}
+
+.message.active {
+  animation: message 0.5s ease-in-out forwards;
+}
+
+@keyframes message {
+  from {
+    opacity: 0;
+    right: -100%;
+  }
+  to {
+    opacity: 1;
+    right: 1rem;
+  }
+}
+
+/* About page */
+.about {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.about__content {
+  max-width: 70vw;
+  text-align: center;
+}
+
+.about__content p {
+  letter-spacing: 1.5px;
+  line-height: 1.5rem;
+  margin: 1rem 0;
+}
+
+.about .linkedBtn {
+  width: 220px;
 }
