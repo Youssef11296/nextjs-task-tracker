@@ -1,9 +1,13 @@
 // modules
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 // styles
 import Styles from "../../styles/Tasks.module.css";
+import { url } from "../../utils/api";
 
 const CreateTask = () => {
+  const [message, setMessage] = useState(null);
+
   const defaultValues: Task = {
     title: "",
     describtion: "",
@@ -12,13 +16,33 @@ const CreateTask = () => {
 
   const { register, reset, handleSubmit } = useForm({ defaultValues });
 
-  const submitHandler = handleSubmit((data: any) => {
-    console.log({ data });
+  const submitHandler = handleSubmit(async (formData: any) => {
+    console.log({ formData });
+
+    const { success, message, data } = await (
+      await fetch(`${url}/tasks`, {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    ).json();
+
+    if (!success) return;
+
+    setMessage(message);
+
+    setTimeout(() => {
+      setMessage(null);
+    }, 5000);
+
     reset();
   });
 
   return (
     <div className={Styles.createTask}>
+      <div className={`${message && "active"} message`}>{message}</div>
       <form onSubmit={submitHandler}>
         <div className="inputField">
           <label htmlFor="title">Title</label>
