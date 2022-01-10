@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 // styles
 import Styles from "../../styles/Tasks.module.css";
-import { url } from "../../utils/api";
+import { url } from "../../shared/api";
 
 const CreateTask = () => {
   const [message, setMessage] = useState(null);

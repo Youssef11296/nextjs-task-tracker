@@ -1,7 +1,7 @@
 // children
 import Task from "./Task";
 // styles
-import Styles from "../../../styles/Tasks.module.css";
+import Styles from "../../styles/Tasks.module.css";
 import Link from "next/link";
 
 // props

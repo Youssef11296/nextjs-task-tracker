@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Styles from "../../styles/Tasks.module.css";
-import { url } from "../../utils/api";
+import { url } from "../../shared/api";
 
 interface Props {
   task: Task;

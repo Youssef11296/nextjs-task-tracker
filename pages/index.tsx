@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Tasks from "../components/Layout/Tasks/Tasks";
-import { url } from "../utils/api";
+import Tasks from "../components/Tasks";
+import { url } from "../shared/api";
 import Styles from "../styles/Home.module.css";
 
 interface Props {
