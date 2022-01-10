@@ -4,7 +4,7 @@ import db from '../../../utils/db';
 db.connect ();
 
 export default async function (req, res) {
-  const {method, query: {taskId}} = req;
+  const {method, body, query: {taskId}} = req;
 
   switch (method) {
     case 'GET':
@@ -21,6 +21,18 @@ export default async function (req, res) {
         res.status (200).json ({
           success: true,
           message: 'The task is successfully deleted',
+        });
+      } catch (error) {
+        res.status (400).json ({success: false, message: error.message});
+      }
+      break;
+    case 'PATCH':
+      try {
+        const updatedTask = await Task.findByIdAndUpdate (taskId, body);
+        res.status (201).json ({
+          success: true,
+          message: 'The task is successfully updated',
+          data: updatedTask,
         });
       } catch (error) {
         res.status (400).json ({success: false, message: error.message});

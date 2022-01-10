@@ -44,13 +44,15 @@ const fetchedTask: NextPage<Props> = ({ task }) => {
   return (
     <div className={Styles.fetchedTask}>
       <div className={`${message && "active"} message`}>{message}</div>
-      <div className={Styles.fetchedTaskContent}>
-        <h2>{task.title}</h2>
-        <p>{task.describtion}</p>
-      </div>
-      <div className={Styles.fetchedTaskOptions}>
-        <button onClick={deleteHandler}>Delete</button>
-        <button>Completed</button>
+      <div className={Styles.fetchedTaskContainer}>
+        <div className={Styles.fetchedTaskContent}>
+          <h2>{task.title}</h2>
+          <p>{task.describtion}</p>
+        </div>
+        <div className={Styles.fetchedTaskOptions}>
+          <button onClick={deleteHandler}>Delete</button>
+          <button>Completed</button>
+        </div>
       </div>
     </div>
   );

@@ -12,6 +12,7 @@
   padding: 1rem;
   border-radius: 5px;
   background-color: #ddd;
+  box-shadow: 0 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .taskItem,
@@ -19,10 +20,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
   font-size: 1.2rem;
   margin: 1rem 0;
   background: #fff;
+}
+
+.taskItem p,
+.remindedTask p {
+  font-size: 1rem;
+  font-style: italic;
 }
 
 .remindedTask {
@@ -32,10 +39,52 @@
 .tasksOptions button {
   width: 200px;
   display: block;
-  margin: 1rem auto 0;
+  margin: 2rem auto 0;
 }
 
-/* Create task */
+/* fetched task */
+.fetchedTask {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.fetchedTaskContainer {
+  background: #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 500px;
+  max-height: 300px;
+  max-width: 50vw;
+}
+
+.fetchedTaskContent {
+  text-align: center;
+}
+
+.fetchedTaskContainer p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.fetchedTaskOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fetchedTaskOptions button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  width: 100px;
+  cursor: pointer;
+  background: #000;
+  border-radius: 5px;
+}
+
+/* create task */
 .createTask {
   height: 100%;
   display: grid;
