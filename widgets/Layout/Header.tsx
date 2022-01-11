@@ -1,7 +1,7 @@
 // modules
 import Link from "next/link";
 // styles
-import Styles from "../../styles/Layout.module.css";
+import Styles from "../../shared/styles/Layout.module.css";
 
 const Header = () => {
   return (

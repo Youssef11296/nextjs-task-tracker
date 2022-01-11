@@ -1,11 +1,12 @@
-// styles
+// modules
 import Link from "next/link";
-import Styles from "../styles/About.module.css";
+// styles
+import Styles from "../styles/AboutStyles/About.module.css";
 
 const about = () => {
   return (
-    <div className="about">
-      <div className="about__content">
+    <div className={Styles.about}>
+      <div className={Styles.about__content}>
         <h2>About the app</h2>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting

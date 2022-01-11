@@ -9,5 +9,5 @@
   margin-bottom: 1rem;
   text-align: center;
   color: #fff;
-  background: #0908;
+  background: var(--secondary-bg);
 }

@@ -4,7 +4,7 @@ import { NextComponentType } from "next";
 import Footer from "./Footer";
 import Header from "./Header";
 // styles
-import Styles from "../../styles/Layout.module.css";
+import Styles from "../../shared/styles/Layout.module.css";
 
 const Layout: NextComponentType = ({ children }) => {
   return (

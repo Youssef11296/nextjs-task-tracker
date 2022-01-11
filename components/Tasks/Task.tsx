@@ -1,9 +1,12 @@
-// styles
+// modules
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import Styles from "../../styles/Tasks.module.css";
+import { useState } from "react";
+// api
 import { url } from "../../shared/api";
+// styles
+import Styles from "../../styles/TasksStyles/Tasks.module.css";
 
+// props
 interface Props {
   task: Task;
 }

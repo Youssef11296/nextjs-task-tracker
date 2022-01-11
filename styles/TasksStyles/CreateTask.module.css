@@ -1,0 +1,58 @@
+.createTask {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.createTask form {
+  width: 500px;
+  background-color: #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 4rem auto;
+}
+
+.createTask form > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.createTask form .checkField {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto 2rem;
+}
+
+.createTask form .checkField input {
+  cursor: pointer;
+}
+
+.createTask form label {
+  font-weight: 600;
+}
+
+.createTask form input {
+  outline: none;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.createTask form button {
+  padding: 0.5rem;
+  width: 120px;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin: auto;
+  display: block;
+  background: #000;
+  border: none;
+  border-radius: 5px;
+}

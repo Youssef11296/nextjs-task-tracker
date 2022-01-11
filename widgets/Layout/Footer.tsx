@@ -1,5 +1,5 @@
 // styles
-import Styles from "../../styles/Layout.module.css";
+import Styles from "../../shared/styles/Layout.module.css";
 
 const Footer = () => {
   return (

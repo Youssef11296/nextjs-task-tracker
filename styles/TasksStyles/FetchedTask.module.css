@@ -1,0 +1,50 @@
+.fetchedTask {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.fetchedTaskContainer {
+  background: #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 500px;
+  max-height: 300px;
+  max-width: 50vw;
+}
+
+.fetchedTaskContainer.reminder {
+  color: #fff;
+  background: var(--secondary-bg);
+}
+
+.fetchedTaskContent {
+  text-align: center;
+}
+
+.fetchedTaskContainer p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.fetchedTaskOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fetchedTaskOptions button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  width: 100px;
+  cursor: pointer;
+  background: #000;
+  border-radius: 5px;
+}
+
+.fetchedTaskContainer.reminder .fetchedTaskOptions button {
+  background: #000;
+  color: #fff;
+}

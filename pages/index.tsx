@@ -1,9 +1,14 @@
+// modules
 import type { NextPage } from "next";
 import Head from "next/head";
+// components
 import Tasks from "../components/Tasks";
+// api
 import { url } from "../shared/api";
-import Styles from "../styles/Home.module.css";
+// styles
+import Styles from "../styles/HomeStyles/Home.module.css";
 
+// props
 interface Props {
   tasks: Task[];
 }
