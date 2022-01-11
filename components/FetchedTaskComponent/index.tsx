@@ -1,4 +1,5 @@
 // modules
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 // api
@@ -50,7 +51,9 @@ const FetchedTask: React.FC<Props> = ({ task }) => {
         </div>
         <div className={Styles.fetchedTaskOptions}>
           <button onClick={deleteHandler}>Delete</button>
-          <button>Completed</button>
+          <button className="linkedBtn">
+            <Link href={`/tasks/${task._id}/update`}>Update</Link>
+          </button>
         </div>
       </div>
     </div>

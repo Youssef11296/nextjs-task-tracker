@@ -1,10 +1,13 @@
 // modules
+import Link from "next/link";
 import { NextPage } from "next";
 // components
-import FetchedTask from "../../components/FetchedTaskComponent";
-import Message from "../../shared/components/Message";
+import FetchedTask from "../../../components/FetchedTaskComponent";
+import Message from "../../../shared/components/Message";
 // api
-import { url } from "../../shared/api";
+import { url } from "../../../shared/api";
+// styles
+import Styles from "../../../styles/TasksStyles/FetchedTask.module.css";
 
 // props
 interface Props {
@@ -21,7 +24,14 @@ const fetchedTask: NextPage<Props> = ({ task }) => {
       />
     );
 
-  return <FetchedTask task={task} />;
+  return (
+    <div className={Styles.fetchedTask}>
+      <FetchedTask task={task} />
+      <button className="linkedBtn">
+        <Link href="/">Back to Home</Link>
+      </button>
+    </div>
+  );
 };
 
 export const getStaticProps = async (context: any) => {

@@ -1,49 +1,101 @@
 // modules
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 // api
 import { url } from "../../shared/api";
+import Message from "../../shared/components/Message";
 // styles
 import Styles from "../../styles/TasksStyles/CreateTask.module.css";
 
-const CreateTaskForm = () => {
-  const [message, setMessage] = useState(null);
+// props
+interface Props {
+  task?: Task;
+  type: "CREATE" | "UPDATE";
+}
 
-  const defaultValues: Task = {
-    title: "",
-    describtion: "",
-    reminder: false,
-  };
+const CreateTaskForm: React.FC<Props> = ({ type, task }) => {
+  const router = useRouter();
+
+  console.log({ task });
+  let defaultValues: Task;
+
+  if (task) {
+    const { title, describtion, reminder } = task;
+    defaultValues = {
+      title,
+      describtion,
+      reminder,
+    };
+  } else {
+    defaultValues = {
+      title: "",
+      describtion: "",
+      reminder: false,
+    };
+  }
+
+  console.log({ defaultValues });
+
+  const [message, setMessage] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const { register, reset, handleSubmit } = useForm({ defaultValues });
 
   const submitHandler = handleSubmit(async (formData: any) => {
     console.log({ formData });
 
-    const { success, message, data } = await (
-      await fetch(`${url}/tasks`, {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-    ).json();
+    if (type === "UPDATE") {
+      const { success, message, data } = await (
+        await fetch(`${url}/tasks/${task?._id}`, {
+          method: "PATCH",
+          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+      ).json();
 
-    if (!success) return;
+      setMessage(message);
+      setSuccess(success);
 
-    setMessage(message);
+      if (success) {
+        setTimeout(() => {
+          router.push("/");
+        }, 2000);
+      }
+    } else {
+      const { success, message, data } = await (
+        await fetch(`${url}/tasks`, {
+          method: "POST",
+          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+      ).json();
 
-    setTimeout(() => {
-      setMessage(null);
-    }, 2000);
+      setMessage(message);
+      setSuccess(success);
+      reset();
+    }
 
-    reset();
+    if (!success) {
+      setTimeout(() => {
+        setMessage("");
+        setSuccess(false);
+      }, 5000);
+    } else {
+      setTimeout(() => {
+        setMessage("");
+        setSuccess(false);
+      }, 2000);
+    }
   });
 
   return (
     <div className={Styles.createTask}>
-      <div className={`${message && "active"} message`}>{message}</div>
+      {message ? <Message message={message} success={success} /> : null}
       <form onSubmit={submitHandler}>
         <div className="inputField">
           <label htmlFor="title">Title</label>
@@ -65,7 +117,7 @@ const CreateTaskForm = () => {
           <label htmlFor="reminder">Set task reminder</label>
           <input type="checkbox" {...register("reminder")} />
         </div>
-        <button type="submit">Add</button>
+        <button type="submit">{type === "UPDATE" ? "Save" : "Add"}</button>
       </form>
     </div>
   );

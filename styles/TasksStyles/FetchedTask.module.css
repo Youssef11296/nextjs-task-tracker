@@ -1,12 +1,15 @@
 .fetchedTask {
-  height: 100%;
-  display: grid;
-  place-items: center;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .fetchedTaskContainer {
   background: #ddd;
   padding: 1rem;
+  margin-bottom: 2rem;
   border-radius: 5px;
   width: 500px;
   max-height: 300px;
@@ -42,6 +45,10 @@
   cursor: pointer;
   background: #000;
   border-radius: 5px;
+}
+
+.fetchedTask > button {
+  width: 200px;
 }
 
 .fetchedTaskContainer.reminder .fetchedTaskOptions button {

@@ -2,7 +2,7 @@
 import CreateTaskForm from "../../components/CreateTaskComponent";
 
 const CreateTask = () => {
-  return <CreateTaskForm />;
+  return <CreateTaskForm type="CREATE" />;
 };
 
 export default CreateTask;
