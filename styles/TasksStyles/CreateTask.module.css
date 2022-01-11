@@ -1,7 +1,10 @@
 .createTask {
-  height: 100%;
   display: grid;
   place-items: center;
+}
+
+.createTask > button {
+  width: 200px;
 }
 
 .createTask form {

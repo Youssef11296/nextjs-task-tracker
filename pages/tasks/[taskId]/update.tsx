@@ -1,5 +1,6 @@
 // components
 import { NextPage } from "next";
+import Link from "next/link";
 import CreateTaskForm from "../../../components/CreateTaskComponent";
 import { url } from "../../../shared/api";
 // styles
@@ -14,6 +15,9 @@ const UpdateTask: NextPage<Props> = ({ task }) => {
   return (
     <div className={Styles.upadteTaskContainer}>
       <CreateTaskForm type="UPDATE" task={task} />
+      <button className="linkedBtn">
+        <Link href="/">Back to Home</Link>
+      </button>
     </div>
   );
 };

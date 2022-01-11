@@ -29,6 +29,18 @@ export default async function (req, res) {
     case 'PATCH':
       try {
         const updatedTask = await Task.findByIdAndUpdate (taskId, body);
+
+        if (
+          !body.title ||
+          body.title.length < 3 ||
+          !body.describtion ||
+          body.describtion.length < 10
+        ) {
+          res
+            .status (400)
+            .json ({success: false, message: 'All fields are required'});
+        }
+
         res.status (201).json ({
           success: true,
           message: 'The task is successfully updated',
