@@ -3,7 +3,7 @@ import db from '../../../utils/db';
 
 db.connect ();
 
-export default async function (req, res) {
+const tasksController = async (req, res) => {
   const {method, body} = req;
 
   switch (method) {
@@ -45,4 +45,6 @@ export default async function (req, res) {
         .status (400)
         .json (`Sorry, You can not do a ${method} request in this api`);
   }
-}
+};
+
+export default tasksController;
